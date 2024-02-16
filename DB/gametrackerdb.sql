@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS `games` (
   `score` DECIMAL(2,1) NULL,
   `hall_of_fame` TINYINT(1) NOT NULL DEFAULT 0,
   `release_date` DATETIME NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_completed` DATETIME NULL,
   `game_description` TEXT NULL,
   `review_text` TEXT NULL,
@@ -53,7 +53,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `gametrackerdb`;
-INSERT INTO `games` (`id`, `name`, `genre`, `rating`, `score`, `hall_of_fame`, `release_date`, `created_at`, `updated_at`, `date_completed`, `game_description`, `review_text`) VALUES (1, 'World of Warcraft', 'MMORPG', 'T', 3.0, 1, '2004-11-23 0:00:00', NULL, NULL, NULL, 'placeholder', 'placeholder');
+INSERT INTO `games` (`id`, `name`, `genre`, `rating`, `score`, `hall_of_fame`, `release_date`, `created_at`, `updated_at`, `date_completed`, `game_description`, `review_text`) VALUES (1, 'World of Warcraft', 'MMORPG', 'T', 3.0, 1, '2004-11-23 0:00:00', DEFAULT, DEFAULT, NULL, 'placeholder', 'placeholder');
 
 COMMIT;
 
