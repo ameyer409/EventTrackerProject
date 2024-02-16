@@ -38,14 +38,35 @@ public class GameServiceImpl implements GameService{
 
 	@Override
 	public Game update(int id, Game game) {
-		// TODO Auto-generated method stub
-		return null;
+		Game gameToUpdate = findById(id);
+		if(gameToUpdate != null) {
+			gameToUpdate.setName(game.getName());
+			gameToUpdate.setGenre(game.getGenre());
+			gameToUpdate.setRating(game.getRating());
+			gameToUpdate.setScore(game.getScore());
+			gameToUpdate.setHallOfFame(game.isHallOfFame());
+			gameToUpdate.setReleaseDate(game.getReleaseDate());
+			gameToUpdate.setCompletedDate(game.getCompletedDate());
+			gameToUpdate.setDescription(game.getDescription());
+			gameToUpdate.setReview(game.getReview());
+		}
+		return gameRepo.saveAndFlush(gameToUpdate);
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean deleted = false;
+		Game gameToDelete = findById(id);
+		if(gameToDelete != null) {
+			gameRepo.deleteById(id);
+			deleted = true;
+		}
+		return deleted;
+	}
+
+	@Override
+	public List<Game> findByGenre(String genre) {
+		return gameRepo.findByGenre(genre);
 	}
 	
 	

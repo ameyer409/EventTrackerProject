@@ -3,9 +3,11 @@ package com.skilldistillery.gametracker.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,5 +52,41 @@ public class GameController {
 			newGame = null;
 		}
 		return newGame;
+	}
+	
+	@PutMapping("games/{id}")
+	public Game updateGame(@PathVariable ("id") int id, @RequestBody Game game, HttpServletResponse res) {
+		Game updatedGame;
+		try {
+			updatedGame = gameService.update(id, game);
+			res.setStatus(200);
+			if (updatedGame == null) {
+				res.setStatus(404);
+			}
+		} catch (Exception e){
+			res.setStatus(400);
+			updatedGame = null;
+			e.printStackTrace();
+		}
+		return updatedGame;
+	}
+	
+	@DeleteMapping("games/{id}")
+	public void deleteGame(@PathVariable ("id") int id, HttpServletResponse res) {
+		try {
+			boolean deleted = gameService.delete(id);
+			res.setStatus(204);
+			if(deleted == false) {
+				res.setStatus(404);
+			}
+		} catch (Exception e) {
+			res.setStatus(400);
+			e.printStackTrace();
+		}
+	}
+	
+	@GetMapping("genres/{genre}")
+	public List<Game> gamesByGenre(@PathVariable("genre") String genre, HttpServletResponse res){
+		return gameService.findByGenre(genre);
 	}
 }

@@ -15,4 +15,6 @@ public interface GameService {
 	Game update(int id, Game game);
 	
 	boolean delete(int id);
+	
+	List<Game> findByGenre(String genre);
 }
