@@ -68,6 +68,21 @@ public class GameServiceImpl implements GameService{
 	public List<Game> findByGenre(String genre) {
 		return gameRepo.findByGenre(genre);
 	}
+
+	@Override
+	public List<Game> findByRating(String rating) {
+		return gameRepo.findByRating(rating);
+	}
+
+	@Override
+	public List<Game> findByScoreBetween(double low, double high) {
+		return gameRepo.findByScoreBetween(low, high);
+	}
+
+	@Override
+	public List<Game> findByNameLike(String keyword) {
+		return gameRepo.findByNameLike("%" + keyword + "%");
+	}
 	
 	
 }

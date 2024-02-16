@@ -85,8 +85,25 @@ public class GameController {
 		}
 	}
 	
-	@GetMapping("genres/{genre}")
+	@GetMapping("games/search/genres/{genre}")
 	public List<Game> gamesByGenre(@PathVariable("genre") String genre, HttpServletResponse res){
 		return gameService.findByGenre(genre);
 	}
+	
+	@GetMapping("games/search/ratings/{rating}")
+	public List<Game> gamesByRating(@PathVariable("rating") String rating, HttpServletResponse res){
+		return gameService.findByRating(rating);
+	}
+	
+	@GetMapping("games/search/scores/{low}/{high}")
+	public List<Game> gamesByScore(@PathVariable("low") double low, @PathVariable("high") double high, HttpServletResponse res){
+		return gameService.findByScoreBetween(low, high);
+	}
+	
+	@GetMapping("games/search/{keyword}")
+	public List<Game> gamesByKeyword(@PathVariable("keyword") String keyword, HttpServletResponse res){
+		return gameService.findByNameLike(keyword);
+	}
+	
+	
 }

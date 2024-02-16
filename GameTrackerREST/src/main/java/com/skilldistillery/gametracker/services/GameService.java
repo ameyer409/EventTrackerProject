@@ -17,4 +17,10 @@ public interface GameService {
 	boolean delete(int id);
 	
 	List<Game> findByGenre(String genre);
+	
+	List<Game> findByRating(String rating);
+	
+	List<Game> findByScoreBetween(double low, double high);
+	
+	List<Game> findByNameLike(String keyword);
 }
