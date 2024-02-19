@@ -13,17 +13,17 @@ This is the REST API implementation for a game tracking application. The program
 
 
 ## REST URIs
-|HTTP Verb | URI | Request Body | Response Body | Purpose |
-|----------|-----|------------ | -------------- | ------- |
-|GET |/api/games|           | Retrieves a collection of all games| collection endpoint|
-|GET |/api/games/1|       | game 1| retrieve endpoint |
-|POST |/api/games |representation of new game resource |description of the result of the operation | create endpoint |
-|PUT |/api/games/1 |representation of new version of game 1 | | update endpoint |
-|DELETE |/api/games/1 | | | | delete routes|
-|GET |/api/games/search/genres/MMORPG| |collection of all games with genre of MMORPG | collection endpoint|
-|GET |/api/games/search/rating/T | | |collection of all games with ESRB rating of T collection endpoint |
-|GET |/api/games/search/scores/2/4 | |collection of all games with user score between 2 and 4 | collection endpoint |
-|GET |/api/games/search/o | |collection of all games that have the letter 'o' in their name | collection endpoint|
+|HTTP Verb | URI | Request Body | Response Body | Purpose | Status Codes |
+|----------|-----|------------ | -------------- | ------- | ------------
+|GET |/api/games|           | Retrieves a collection of all games| collection endpoint| 200 |
+|GET |/api/games/1|       | game 1| retrieve endpoint | 200, 404 |
+|POST |/api/games |representation of new game resource |description of the result of the operation | create endpoint | 201, 400 |
+|PUT |/api/games/1 |representation of new version of game 1 | | update endpoint | 200, 404, 400 |
+|DELETE |/api/games/1 | | | | delete routes| 204, 404, 400 |
+|GET |/api/games/search/genres/MMORPG| |collection of all games with genre of MMORPG | collection endpoint| 200 |
+|GET |/api/games/search/rating/T | | |collection of all games with ESRB rating of T collection endpoint | 200 |
+|GET |/api/games/search/scores/2/4 | |collection of all games with user score between 2 and 4 | collection endpoint | 200 |
+|GET |/api/games/search/o | |collection of all games that have the letter 'o' in their name | collection endpoint| 200 |
 
 
 ## How To Access
