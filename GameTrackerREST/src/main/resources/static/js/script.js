@@ -53,7 +53,6 @@ function init() {
 	})
 
 	document.addGameForm.addGame.addEventListener('click', function(e) {
-		console.log("clicks received");
 		e.preventDefault();
 		let hof = document.addGameForm.hallOfFame.value;
 		if (hof === 'on') {
@@ -80,7 +79,6 @@ function init() {
 	
 	document.updateForm.updateSubmit.addEventListener('click', function(e) {
 		e.preventDefault();
-		console.log("receiving clicks");
 		let hof = document.updateForm.hallOfFame.value;
 		if (hof === 'on') {
 			hof = true;
@@ -206,12 +204,14 @@ function updateDetails(game) {
 	let details = document.getElementById('gameDetails');
 	table.style.display = "none";
 	details.style.display = "block";
-	details = document.getElementById('gameDetailsBody');
-	details.textContent = '';
 	let button = document.getElementById('updatebtn');
 	button.style.display = "none";
 	let form = document.getElementById('updateForm');
+	console.log(form);
 	form.style.display = "block";
+	
+	details = document.getElementById('gameDetailsBody');
+	details.textContent = '';
 console.log(game.id);
 console.log(game.name);
 	
@@ -267,12 +267,14 @@ function showDetails(game) {
 	let details = document.getElementById('gameDetails');
 	table.style.display = "none";
 	details.style.display = "block";
-	details = document.getElementById('gameDetailsBody');
-	details.textContent = '';
+	
 	let button = document.getElementById('updatebtn');
 	button.style.display = "inline";
 	let form = document.getElementById('updateForm');
 	form.style.display = "none";
+	
+	details = document.getElementById('gameDetailsBody');
+	details.textContent = '';
 
 
 	let header = document.createElement('h4');
@@ -355,7 +357,6 @@ function updateGame(game) {
 			if (xhr.status === 200) {
 				let data = JSON.parse(xhr.responseText);
 				console.log(data);
-				//displayFilm(data);
 				loadAllGames();
 			}
 			else {

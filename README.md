@@ -4,12 +4,17 @@
 
 This is the REST API implementation for a game tracking application. The program tracks information about video games that the user has played, including (but not limited to) the games' names, genres, ESRB ratings and user given scores.
 
+Now includes a basic front-end application that allows you to view a list of games in a table. You can also search for games by a few different fields (genre, keyword, score, rating). There is also a field for adding a new game to the database. 
+
+Currently updating is bugged and is in development.
+
 ## Technologies Used
 
 - Java Spring Boot
 - Spring REST
 - Bootstrap
 - Java Persistence API (JPA)
+- JavaScript
 
 
 ## REST URIs
@@ -33,3 +38,6 @@ Not Yet Implemented
 ## Lessons Learned
 
 In this project I've learned how to implement a basic REST API using Spring repositories, service layer and REST controllers I've also learned how to use POSTMAN to test the application using REST URI's. I also learned about JSON and how it can be used in Request and Response bodies.
+
+It appears that once you submit a form, the form is *consumed* somehow and is not available to be re-used. Current implementation allows the user to update once, but then if the user tries to update a second time, the form element is gone and can't be accessed. This means that I will need to dynamically create a new form everytime the user wants to update a game.
+
