@@ -53,6 +53,7 @@ function init() {
 	})
 
 	document.addGameForm.addGame.addEventListener('click', function(e) {
+		console.log("clicks received");
 		e.preventDefault();
 		let hof = document.addGameForm.hallOfFame.value;
 		if (hof === 'on') {
@@ -77,31 +78,7 @@ function init() {
 		}
 	});
 	
-	document.updateForm.updateSubmit.addEventListener('click', function(e) {
-		e.preventDefault();
-		let hof = document.updateForm.hallOfFame.value;
-		if (hof === 'on') {
-			hof = true;
-		}
-		else {
-			hof = false;
-		}
-		game = {
-			id: document.updateForm.id.value,
-			name: document.updateForm.name.value,
-			genre: document.updateForm.genre.value,
-			rating: document.updateForm.rating.value,
-			score: document.updateForm.score.value,
-			hallOfFame: hof,
-			releaseDate: new Date(document.updateForm.release.value),
-			completedDate: new Date(document.updateForm.completion.value),
-			description: document.updateForm.description.value,
-			review: document.updateForm.review.value
-		};
-		if (game.name !== '' && game.genre !== '') {
-			updateGame(game);
-		}
-	});
+	
 
 }
 
@@ -204,16 +181,14 @@ function updateDetails(game) {
 	let details = document.getElementById('gameDetails');
 	table.style.display = "none";
 	details.style.display = "block";
-	let button = document.getElementById('updatebtn');
-	button.style.display = "none";
-	let form = document.getElementById('updateForm');
-	console.log(form);
-	form.style.display = "block";
-	
 	details = document.getElementById('gameDetailsBody');
 	details.textContent = '';
-console.log(game.id);
-console.log(game.name);
+	let button = document.getElementById('updatebtn');
+	button.style.display = "none";
+//console.log(game.id);
+//console.log(game.name);
+	let form = document.createElement('form')
+	form.name = "updateForm";
 	
 	let input = document.createElement('input');
 	input.type = 'hidden';
@@ -222,43 +197,176 @@ console.log(game.name);
 	form.appendChild(input);
 	
 	//Name Field
-	input = document.getElementById('name');
+	let label = document.createElement('label');
+	label.htmlFor = "name";
+	label.textContent = 'Name:';
+	input = document.createElement('input');
+	input.type = 'text';
+	input.id = 'name';
 	input.value = game.name
+	form.appendChild(label);
+	form.appendChild(input);
+	let br = document.createElement('br');
+	form.appendChild(br);
 	//Genre Field
-	input = document.getElementById('genre');
+	label = document.createElement('label');
+	label.htmlFor = "genre";
+	label.textContent = 'Genre:';
+	input = document.createElement('input');
+	input.type = 'text';
+	input.id = 'genre';
 	input.value = game.genre
+	form.appendChild(label);
+	form.appendChild(input);
+	br = document.createElement('br');
+	form.appendChild(br);
 	//Rating Field
-	//let select = document.getElementsByName('rating');
-	//console.log(select);	
-	//select.value = game.rating;
-	
+	label = document.createElement('label');
+	label.htmlFor = "rating";
+	label.textContent = 'Rating:';
+	let select = document.createElement('select');
+	select.id = 'rating';
+	let option = document.createElement('option');
+	option.textContent = 'E';
+	option.value = "E";
+	select.appendChild(option);
+
+	option = document.createElement('option');
+	option.textContent = 'T';
+	option.value = "T";
+	select.appendChild(option);
+
+	option = document.createElement('option');
+	option.textContent = 'M';
+	option.value = "M";
+	select.appendChild(option);
+
+	option = document.createElement('option');
+	option.textContent = 'A';
+	option.value = "A";
+	select.appendChild(option);
+
+	option = document.createElement('option');
+	option.textContent = 'RP';
+	option.value = "RP";
+	select.appendChild(option);
+	form.append(label);
+	form.appendChild(select);
+	br = document.createElement('br');
+	form.appendChild(br);
 	//Score Field
-	input = document.getElementById('score');
+	label = document.createElement('label');
+	label.htmlFor = "score";
+	label.textContent = 'Score:';
+	input = document.createElement('input');
+	input.type = 'number';
+	input.id = 'score';
 	input.value = game.score;
+	form.appendChild(label);
+	form.appendChild(input);
+	br = document.createElement('br');
+	form.appendChild(br);
 	//Hall Of Fame Field
-	input = document.getElementById('hallOfFame');
+	label = document.createElement('label');
+	label.htmlFor = "hallOfFame";
+	label.textContent = 'Hall Of Fame?:';
+	input = document.createElement('input');
+	input.type = 'checkbox';
+	input.id = 'hallOfFame';
 	input.checked = game.hallOfFame;
+	form.appendChild(label);
+	form.appendChild(input);
+	br = document.createElement('br');
+	form.appendChild(br);
 	//Release Date Field
-	input = document.getElementById('release');
+	label = document.createElement('label');
+	label.htmlFor = "release";
+	label.textContent = 'Release Date:';
+	input = document.createElement('input');
+	input.type = 'date';
+	input.id = 'release';
 	if (game.releaseDate !== null) {
 		let date = game.releaseDate.split("T");
 		input.defaultValue = date[0];
 	}
+	form.appendChild(label);
+	form.appendChild(input);
+	br = document.createElement('br');
+	form.appendChild(br);
 	//completed Date Field
-	input = document.getElementById('completion');
+	label = document.createElement('label');
+	label.htmlFor = "completion";
+	label.textContent = 'Date Finished:';
+	input = document.createElement('input');
+	input.type = 'date';
+	input.id = 'completion';
 	if (game.completedDate !== null) {
 		date = game.completedDate.split("T");
 		input.defaultValue = date[0];
 	}
+	form.appendChild(label);
+	form.appendChild(input);
+	br = document.createElement('br');
+	form.appendChild(br);
 	//Description Field
-	input = document.getElementById('description');
+	label = document.createElement('label');
+	label.htmlFor = "description";
+	label.textContent = 'Description:';
+	input = document.createElement('input');
+	input.type = 'text';
+	input.id = 'description';
+	input.name = 'description'
 	input.value = game.description
+	form.appendChild(label);
+	form.appendChild(input);
+	br = document.createElement('br');
+	form.appendChild(br);
 	//Review Field
-	input = document.getElementById('review');
+	label = document.createElement('label');
+	label.htmlFor = "review";
+	label.textContent = 'Review:';
+	input = document.createElement('input');
+	input.type = 'text';
+	input.id = 'review';	
+	input.name = 'review'
 	input.value = game.review
-
-	details.appendChild(form);
+	form.appendChild(label);
+	form.appendChild(input);
+	br = document.createElement('br');
+	form.appendChild(br);
+	button = document.createElement("button");
+	button.className = "btn btn-primary";
+	button.id = 'updateSubmit';
+	button.name = 'updateSubmit';
+	button.textContent = 'Submit Update';
 	
+	button.addEventListener('click', function(e) {
+		e.preventDefault();
+		let hof = document.updateForm.hallOfFame.value;
+		if (hof === 'on') {
+			hof = true;
+		}
+		else {
+			hof = false;
+		}
+		game = {
+			id: document.updateForm.id.value,
+			name: document.updateForm.name.value,
+			genre: document.updateForm.genre.value,
+			rating: document.updateForm.rating.value,
+			score: document.updateForm.score.value,
+			hallOfFame: hof,
+			releaseDate: new Date(document.updateForm.release.value),
+			completedDate: new Date(document.updateForm.completion.value),
+			description: document.updateForm.description.value,
+			review: document.updateForm.review.value
+		};
+		if (game.name !== '' && game.genre !== '') {
+			updateGame(game);
+		}
+	});
+	form.appendChild(button);
+	details.appendChild(form);
 	
 }
 
@@ -267,14 +375,10 @@ function showDetails(game) {
 	let details = document.getElementById('gameDetails');
 	table.style.display = "none";
 	details.style.display = "block";
-	
-	let button = document.getElementById('updatebtn');
-	button.style.display = "inline";
-	let form = document.getElementById('updateForm');
-	form.style.display = "none";
-	
 	details = document.getElementById('gameDetailsBody');
 	details.textContent = '';
+	let button = document.getElementById('updatebtn');
+	button.style.display = "inline";
 
 
 	let header = document.createElement('h4');
@@ -349,6 +453,7 @@ function createGame(game) {
 
 function updateGame(game) {
 	let xhr = new XMLHttpRequest();
+	console.log(game);
 	xhr.open('PUT', 'api/games/'+game.id, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -357,6 +462,7 @@ function updateGame(game) {
 			if (xhr.status === 200) {
 				let data = JSON.parse(xhr.responseText);
 				console.log(data);
+				//displayFilm(data);
 				loadAllGames();
 			}
 			else {
