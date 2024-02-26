@@ -12,7 +12,7 @@ rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bR
 		<h1>My Games List</h1>
 	
 		<div id="gameList">
-			<table id="gameTable">
+			<table class="table table-hover" id="gameTable">
 				<thead id='gameHeaders'>
 					
 				</thead>
@@ -24,8 +24,48 @@ rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bR
 		</div>
 		
 		<div id="gameDetails">
-			<p>Test</p>
+			<div id="gameDetailsBody">
+				<p>Test</p>
+			</div>
+			
+			<form id="updateForm" name="updateForm">
+			  	<label for="name">Name:</label>
+			  	<input type="text" id="name" name="name"> <br>
+			  	<label for="genre">Genre:</label>
+			  	<input type="text" id="genre" name="genre"> <br>
+			  	Rating: <br>
+			  	<input type="radio" id="rating1" name="rating" value="E"> 
+			  	<label for="rating1">E</label>
+			  	<input type="radio" id="rating2" name="rating" value="T"> 
+			  	<label for="rating1">T</label>
+			  	<input type="radio" id="rating3" name="rating" value="M"> 
+			  	<label for="rating1">M</label>
+			  	<input type="radio" id="rating4" name="rating" value="A"> 
+			  	<label for="rating1">A</label>
+			  	<input type="radio" id="rating5" name="rating" value="RP">
+			  	<label for="rating1">RP</label> <br>
+			  	
+			  	<label for="score">Score:</label>
+			  	<input type="number" id="score" name="score"> <br>
+			  	
+			  	<label for="hallOfFame">Hall Of Fame?</label>
+			  	<input type="checkbox" id="hallOfFame" name="hallOfFame"> <br>
+			  	
+			  	<label for="release">Release Date:</label>
+			  	<input type="date" id="release" name="release"> <br>
+			  	<label for="completion">Date Finished:</label>
+			  	<input type="date" id="completion" name="completion"> <br>
+			  	
+			  	<label for="description">Game Description:</label>
+			  	<input type="text" id="description" name="description"> <br>
+			  	<label for="review">Review of Game:</label>
+			  	<input type="text" id="review" name="review"> <br>
+			  	
+				<button class="btn btn-primary" id="updateSubmit" name="updateSubmit">Submit Update</button>
+			 </form>
 			<button class="btn btn-primary" id="detailsbtn" name="detailsbtn">Go Back To Table</button>
+			<button class="btn btn-primary" id="updatebtn" name="updatebtn">Update Game Info</button>
+			
 		</div>
 		
 		<div id="gameSearch">
