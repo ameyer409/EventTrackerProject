@@ -39,5 +39,5 @@ Not Yet Implemented
 
 In this project I've learned how to implement a basic REST API using Spring repositories, service layer and REST controllers I've also learned how to use POSTMAN to test the application using REST URI's. I also learned about JSON and how it can be used in Request and Response bodies.
 
-It appears that once you submit a form, the form is *consumed* somehow and is not available to be re-used. Current implementation allows the user to update once, but then if the user tries to update a second time, the form element is gone and can't be accessed. This means that I will need to dynamically create a new form everytime the user wants to update a game.
+It appears that once you submit a form, the form is *consumed* somehow and is not available to be re-used. Current implementation allows the user to update once, but then if the user tries to update a second time, the form element is gone and can't be accessed. This means that I will need to dynamically create a new form everytime the user wants to update a game. ***FIXED*** Form is not created dynamically upon an update request so as to avoid the issue of the form being "consumed".
 
