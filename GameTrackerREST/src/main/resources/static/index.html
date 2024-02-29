@@ -28,55 +28,54 @@ rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bR
 				
 			</div>
 			
-			<!-- <form id="updateForm" name="updateForm">
-			  	<label for="name">Name:</label>
-			  	<input type="text" id="name" name="name"> <br>
-			  	<label for="genre">Genre:</label>
-			  	<input type="text" id="genre" name="genre"> <br>
-			  	Rating: <br>
-			  	<input type="radio" id="rating1" name="rating" value="E"> 
-			  	<label for="rating1">E</label>
-			  	<input type="radio" id="rating2" name="rating" value="T"> 
-			  	<label for="rating1">T</label>
-			  	<input type="radio" id="rating3" name="rating" value="M"> 
-			  	<label for="rating1">M</label>
-			  	<input type="radio" id="rating4" name="rating" value="A"> 
-			  	<label for="rating1">A</label>
-			  	<input type="radio" id="rating5" name="rating" value="RP">
-			  	<label for="rating1">RP</label> <br>
-			  	
-			  	<label for="score">Score:</label>
-			  	<input type="number" id="score" name="score"> <br>
-			  	
-			  	<label for="hallOfFame">Hall Of Fame?</label>
-			  	<input type="checkbox" id="hallOfFame" name="hallOfFame"> <br>
-			  	
-			  	<label for="release">Release Date:</label>
-			  	<input type="date" id="release" name="release"> <br>
-			  	<label for="completion">Date Finished:</label>
-			  	<input type="date" id="completion" name="completion"> <br>
-			  	
-			  	<label for="description">Game Description:</label>
-			  	<input type="text" id="description" name="description"> <br>
-			  	<label for="review">Review of Game:</label>
-			  	<input type="text" id="review" name="review"> <br>
-			  	
-				<button class="btn btn-primary" id="updateSubmit" name="updateSubmit">Submit Update</button>
-			 </form> -->
+			
 			<button class="btn btn-primary" id="detailsbtn" name="detailsbtn">Go Back To Table</button>
 			<button class="btn btn-primary" id="updatebtn" name="updatebtn">Update Game Info</button>
 			
 		</div>
 		
-		<div id="gameSearch">
-			<h1>Find Games By Genre</h1>
-				<form name="genreForm">
-					<input type="text" name="genre" placeholder="MMORPG">
-					<button class="btn btn-primary" name="genreLookup">Submit!</button>
-				</form>
-			<h1>Find Games By Rating</h1>
-				<form name="ratingForm">
-					<input type="radio" id="rating1" name="rating" value="E"> 
+			<div id="gameSearch">
+				<h1>Find Games By Genre</h1>
+					<form name="genreForm">
+						<input type="text" name="genre" placeholder="MMORPG">
+						<button class="btn btn-primary" name="genreLookup">Submit!</button>
+					</form>
+				<h1>Find Games By Rating</h1>
+					<form name="ratingForm">
+						<input type="radio" id="rating1" name="rating" value="E"> 
+					  	<label for="rating1">E</label>
+					  	<input type="radio" id="rating2" name="rating" value="T"> 
+					  	<label for="rating1">T</label>
+					  	<input type="radio" id="rating3" name="rating" value="M"> 
+					  	<label for="rating1">M</label>
+					  	<input type="radio" id="rating4" name="rating" value="A"> 
+					  	<label for="rating1">A</label>
+					  	<input type="radio" id="rating5" name="rating" value="RP">
+					  	<label for="rating1">RP</label> <br>
+						<button class="btn btn-primary" name="ratingLookup">Submit!</button>
+					</form>
+				<h1>Find Games By Score</h1>
+					<form name="scoreForm">
+						<input type="number" name="low" placeholder=0>
+						<input type="number" name="high" placeholder=5>
+						<button class="btn btn-primary" name="scoreLookup">Submit!</button>
+					</form>
+				<h1>Find Games By Keyword</h1>
+					<form name="keywordForm">
+						<input type="text" name="keyword" placeholder="enter search term(s)">
+						<button class="btn btn-primary" name="keywordLookup">Submit!</button>
+					</form>
+			</div>
+			
+			<div id="addGame">
+				<h1>Add a Game</h1>
+				<form name="addGameForm">
+				  	<label for="name">Name:</label>
+				  	<input type="text" id="name" name="name"> <br>
+				  	<label for="genre">Genre:</label>
+				  	<input type="text" id="genre" name="genre"> <br>
+				  	Rating: <br>
+				  	<input type="radio" id="rating1" name="rating" value="E"> 
 				  	<label for="rating1">E</label>
 				  	<input type="radio" id="rating2" name="rating" value="T"> 
 				  	<label for="rating1">T</label>
@@ -86,59 +85,26 @@ rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bR
 				  	<label for="rating1">A</label>
 				  	<input type="radio" id="rating5" name="rating" value="RP">
 				  	<label for="rating1">RP</label> <br>
-					<button class="btn btn-primary" name="ratingLookup">Submit!</button>
-				</form>
-			<h1>Find Games By Score</h1>
-				<form name="scoreForm">
-					<input type="number" name="low" placeholder=0>
-					<input type="number" name="high" placeholder=5>
-					<button class="btn btn-primary" name="scoreLookup">Submit!</button>
-				</form>
-			<h1>Find Games By Keyword</h1>
-				<form name="keywordForm">
-					<input type="text" name="keyword" placeholder="enter search term(s)">
-					<button class="btn btn-primary" name="keywordLookup">Submit!</button>
-				</form>
-		</div>
-		
-		<div id="addGame">
-			<h1>Add a Game</h1>
-			<form name="addGameForm">
-			  	<label for="name">Name:</label>
-			  	<input type="text" id="name" name="name"> <br>
-			  	<label for="genre">Genre:</label>
-			  	<input type="text" id="genre" name="genre"> <br>
-			  	Rating: <br>
-			  	<input type="radio" id="rating1" name="rating" value="E"> 
-			  	<label for="rating1">E</label>
-			  	<input type="radio" id="rating2" name="rating" value="T"> 
-			  	<label for="rating1">T</label>
-			  	<input type="radio" id="rating3" name="rating" value="M"> 
-			  	<label for="rating1">M</label>
-			  	<input type="radio" id="rating4" name="rating" value="A"> 
-			  	<label for="rating1">A</label>
-			  	<input type="radio" id="rating5" name="rating" value="RP">
-			  	<label for="rating1">RP</label> <br>
-			  	
-			  	<label for="score">Score:</label>
-			  	<input type="number" id="score" name="score"> <br>
-			  	
-			  	<label for="hallOfFame">Hall Of Fame?</label>
-			  	<input type="checkbox" id="hallOfFame" name="hallOfFame"> <br>
-			  	
-			  	<label for="release">Release Date:</label>
-			  	<input type="date" id="release" name="release"> <br>
-			  	<label for="completion">Date Finished:</label>
-			  	<input type="date" id="completion" name="completion"> <br>
-			  	
-			  	<label for="description">Game Description:</label>
-			  	<input type="text" id="description" name="description"> <br>
-			  	<label for="review">Review of Game:</label>
-			  	<input type="text" id="review" name="review"> <br>
-			  	
-			  	<button class="btn btn-primary" name="addGame">Submit</button>
-			 </form>
-		</div>
+				  	
+				  	<label for="score">Score:</label>
+				  	<input type="number" id="score" name="score"> <br>
+				  	
+				  	<label for="hallOfFame">Hall Of Fame?</label>
+				  	<input type="checkbox" id="hallOfFame" name="hallOfFame"> <br>
+				  	
+				  	<label for="release">Release Date:</label>
+				  	<input type="date" id="release" name="release"> <br>
+				  	<label for="completion">Date Finished:</label>
+				  	<input type="date" id="completion" name="completion"> <br>
+				  	
+				  	<label for="description">Game Description:</label>
+				  	<input type="text" id="description" name="description"> <br>
+				  	<label for="review">Review of Game:</label>
+				  	<input type="text" id="review" name="review"> <br>
+				  	
+				  	<button class="btn btn-primary" name="addGame">Submit</button>
+				 </form>
+			</div>
 	</main>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
