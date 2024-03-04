@@ -84,7 +84,7 @@ function init() {
 
 function loadAllGames() {
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8084/api/games');
+	xhr.open('GET', 'api/games');
 
 	xhr.onreadystatechange = function() {
 		console.log('== In onreadystatechange: ' + xhr.readyState);
@@ -478,7 +478,7 @@ function updateGame(game) {
 
 function loadGamesByGenre(genre) {
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8084/api/games/search/genres/' + genre);
+	xhr.open('GET', 'api/games/search/genres/' + genre);
 
 	xhr.onreadystatechange = function() {
 		console.log('== In onreadystatechange: ' + xhr.readyState);
@@ -500,7 +500,7 @@ function loadGamesByGenre(genre) {
 
 function loadGamesByRating(rating) {
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8084/api/games/search/ratings/' + rating);
+	xhr.open('GET', 'api/games/search/ratings/' + rating);
 
 	xhr.onreadystatechange = function() {
 		console.log('== In onreadystatechange: ' + xhr.readyState);
@@ -522,7 +522,7 @@ function loadGamesByRating(rating) {
 
 function loadGamesByScore(low, high) {
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8084/api/games/search/scores/' + low + '/' + high);
+	xhr.open('GET', 'api/games/search/scores/' + low + '/' + high);
 
 	xhr.onreadystatechange = function() {
 		console.log('== In onreadystatechange: ' + xhr.readyState);
@@ -544,7 +544,7 @@ function loadGamesByScore(low, high) {
 
 function loadGamesByKeyword(keyword) {
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://localhost:8084/api/games/search/' + keyword);
+	xhr.open('GET', 'api/games/search/' + keyword);
 
 	xhr.onreadystatechange = function() {
 		console.log('== In onreadystatechange: ' + xhr.readyState);
