@@ -1,0 +1,121 @@
+<body>
+		<h1>My Games List</h1>
+
+		<div *ngIf="!selected" id="gameList">
+			<table class="table table-hover" id="gameTable">
+				<thead id='gameHeaders'>
+          <tr class="table-dark">
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Score</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Completion Date</th>
+            <th scope="col"></th>
+          </tr>
+				</thead>
+				<tbody id="gameEntries">
+          <tr class="table-info" *ngFor="let game of games" >
+            <td scope="row">{{games.indexOf(game) + 1}}</td>
+            <td (click)="displayGame(game)">{{game.name}}</td>
+            <td>{{game.genre}}</td>
+            <td>{{game.rating}}</td>
+            <td>{{game.score}}</td>
+            <!-- <td><input (change)="updateTodo(game)" type="checkbox" [(ngModel)]=".completed" /></td> -->
+            <td>{{game.releaseDate}}</td>
+            <td>{{game.completedDate}}</td>
+            <td><button class="btn btn-danger" (click)="deleteGame(game.id)">X</button></td>
+          </tr>
+				</tbody>
+
+			</table>
+		</div>
+
+    <div *ngIf="selected != null && editGame == null">
+      <h4>{{selected.id}}</h4>
+      <p>{{selected.name}}</p>
+      <p>{{selected.genre}}</p>
+      <p>{{selected.rating}}</p>
+      <p>{{selected.score}}</p>
+      Hall Of Fame?<input type="checkbox" [checked]="selected.hallOfFame">
+      <p>{{selected.description}}</p>
+      <p>{{selected.review}}</p>
+      <p>Release Date: {{selected.releaseDate}}</p>
+      <p>Completion Date: {{selected.completedDate}}</p>
+      <button class="btn btn-secondary" (click)="displayTable()">Go Back</button>
+      <button class="btn btn-outline-primary" (click)="setEditGame()">Edit</button>
+    </div>
+
+			<div id="gameSearch">
+				<h1>Find Games By Genre</h1>
+					<form name="genreForm">
+						<input type="text" name="genre" placeholder="MMORPG">
+						<button class="btn btn-primary" name="genreLookup">Submit!</button>
+					</form>
+				<h1>Find Games By Rating</h1>
+					<form name="ratingForm">
+						<input type="radio" id="rating1" name="rating" value="E">
+					  	<label for="rating1">E</label>
+					  	<input type="radio" id="rating2" name="rating" value="T">
+					  	<label for="rating1">T</label>
+					  	<input type="radio" id="rating3" name="rating" value="M">
+					  	<label for="rating1">M</label>
+					  	<input type="radio" id="rating4" name="rating" value="A">
+					  	<label for="rating1">A</label>
+					  	<input type="radio" id="rating5" name="rating" value="RP">
+					  	<label for="rating1">RP</label> <br>
+						<button class="btn btn-primary" name="ratingLookup">Submit!</button>
+					</form>
+				<h1>Find Games By Score</h1>
+					<form name="scoreForm">
+						<input type="number" name="low" placeholder=0>
+						<input type="number" name="high" placeholder=5>
+						<button class="btn btn-primary" name="scoreLookup">Submit!</button>
+					</form>
+				<h1>Find Games By Keyword</h1>
+					<form name="keywordForm">
+						<input type="text" name="keyword" placeholder="enter search term(s)">
+						<button class="btn btn-primary" name="keywordLookup">Submit!</button>
+					</form>
+			</div>
+
+			<div id="addGame">
+				<h1>Add a Game</h1>
+				<form name="addGameForm">
+				  	<label for="name">Name:</label>
+				  	<input type="text" id="name" name="name"> <br>
+				  	<label for="genre">Genre:</label>
+				  	<input type="text" id="genre" name="genre"> <br>
+				  	Rating: <br>
+				  	<input type="radio" id="rating1" name="rating" value="E">
+				  	<label for="rating1">E</label>
+				  	<input type="radio" id="rating2" name="rating" value="T">
+				  	<label for="rating1">T</label>
+				  	<input type="radio" id="rating3" name="rating" value="M">
+				  	<label for="rating1">M</label>
+				  	<input type="radio" id="rating4" name="rating" value="A">
+				  	<label for="rating1">A</label>
+				  	<input type="radio" id="rating5" name="rating" value="RP">
+				  	<label for="rating1">RP</label> <br>
+
+				  	<label for="score">Score:</label>
+				  	<input type="number" id="score" name="score"> <br>
+
+				  	<label for="hallOfFame">Hall Of Fame?</label>
+				  	<input type="checkbox" id="hallOfFame" name="hallOfFame"> <br>
+
+				  	<label for="release">Release Date:</label>
+				  	<input type="date" id="release" name="release"> <br>
+				  	<label for="completion">Date Finished:</label>
+				  	<input type="date" id="completion" name="completion"> <br>
+
+				  	<label for="description">Game Description:</label>
+				  	<input type="text" id="description" name="description"> <br>
+				  	<label for="review">Review of Game:</label>
+				  	<input type="text" id="review" name="review"> <br>
+
+				  	<button class="btn btn-primary" name="addGame">Submit</button>
+				 </form>
+			</div>
+</body>
