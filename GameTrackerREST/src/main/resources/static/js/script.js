@@ -447,7 +447,6 @@ function createGame(game) {
 	}
 
 	let gameJSON = JSON.stringify(game);
-	console.log(gameJSON);
 	xhr.send(gameJSON);
 }
 

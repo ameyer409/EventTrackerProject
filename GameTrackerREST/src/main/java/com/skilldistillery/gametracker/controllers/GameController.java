@@ -19,7 +19,7 @@ import com.skilldistillery.gametracker.services.GameService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@CrossOrigin({"*", "http://localhost/"})
+@CrossOrigin({ "*", "http://localhost/" })
 @RestController
 @RequestMapping("api")
 public class GameController {
