@@ -5,8 +5,8 @@ export class Game {
   rating: string;
   score: number;
   hallOfFame: boolean;
-  releaseDate: string;
-  completedDate: string;
+  releaseDate: Date;
+  completedDate: Date;
   description: string;
   review: string;
 
@@ -18,8 +18,8 @@ export class Game {
     rating: string = '',
     score: number = 0,
     hallOfFame: boolean = false,
-    releaseDate: string = '',
-    completedDate: string = '',
+    releaseDate: Date = new Date(Date.now()),
+    completedDate: Date = new Date(Date.now()),
     description: string = '',
     review: string = ''
   ){
